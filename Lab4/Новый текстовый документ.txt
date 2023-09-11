@@ -1,0 +1,19 @@
+BIN = / home / zemlyanukhin
+
+all: 4LabOS
+
+4LabOS : main.o math_module.o 
+	g++ main.o math_module.o - o 4LabOS
+
+main.o : main.cpp
+	g++ - c main.cpp
+
+math_module.o : math_module.cpp
+	g++ - c math_module.cpp
+
+clean :
+	rm - rf * .o 4LabOS
+
+install : 4LabOS
+	mkdir - p "$(BIN)"
+	cp - a "./4LabOS" "$(BIN)"
