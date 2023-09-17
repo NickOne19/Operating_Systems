@@ -1,0 +1,37 @@
+BIN=/home/bin
+
+
+
+all: lab4
+
+
+
+lab4: main.o math_module.o
+
+	g++ main.o math_module.o  -o lab4
+
+
+
+main.o: main.cpp
+
+	g++ -c main.cpp
+
+
+
+math_module.o: math_module.cpp
+
+	g++ -c math_module.cpp
+
+	
+
+clean:
+
+	rm -rf *.o lab4
+
+	
+
+install: lab4
+
+	mkdir -p "$(BIN)"
+
+	cp -a "./lab4" "$(BIN)"
